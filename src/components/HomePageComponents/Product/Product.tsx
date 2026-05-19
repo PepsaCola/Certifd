@@ -22,41 +22,39 @@ const features = [
 
 export const Product = () => {
     return (
-        <Section bTop={true} bg={'bg-[#F8F9FA]'}>
-            <SectionTitle style="mb-[20px] max-w-2xl">
+        <Section id="product" bTop={true} bg="bg-[#F8F9FA]">
+            <SectionTitle style="mb-6 md:mb-8 max-w-2xl mx-auto md:mx-0">
                 A modern credential <br className="hidden sm:block" /> infrastructure for universities
             </SectionTitle>
 
-            <SectionSubTitle style="mb-[40px] max-w-3xl">
+            <SectionSubTitle style="mb-10 md:mb-12 max-w-3xl mx-auto md:mx-0">
                 Certifd provides secure credential issuance, automated approval workflows,
                 and instant verification — built entirely on W3C open standards.
             </SectionSubTitle>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
                 {features.map((feature, index) => (
                     <div
                         key={index}
-                        className="border border-[#D9DEE7] overflow-hidden bg-brand-white  flex flex-col"
+                        className="border border-[#E5E7EB] overflow-hidden bg-white flex flex-col transition-shadow hover:shadow-sm"
                     >
-                        <div className="flex items-stretch h-[48px]">
-                            <div className="w-[48px] bg-brand-white flex items-center justify-center shrink-0">
-                                <img src={feature.icon} alt={feature.title} width={24} height={24}  />
+                        <div className="flex items-stretch h-[48px] md:h-[56px]">
+                            <div className="w-[48px] md:w-[56px] bg-white flex items-center justify-center shrink-0 border-r border-b border-[#E5E7EB]">
+                                <img src={feature.icon} alt={feature.title} className="w-6 h-6 md:w-7 md:h-7" />
                             </div>
-                            <div className="flex-1 border-l bg-[#F8F9FA] border-b border-brand-secondary/20"></div>
+                            <div className="flex-1 bg-[#F8F9FA] border-b border-[#E5E7EB]"></div>
                         </div>
 
-                        <div className="p-5 flex bg-brand-white flex-col gap-2">
-                            <h5 className="text-base font-semibold text-brand-dark">
+                        <div className="p-6 md:p-8 flex bg-white flex-col gap-2.5">
+                            <h5 className="text-[15px] md:text-base font-semibold text-brand-dark">
                                 {feature.title}
                             </h5>
-                            <p className="text-sm font-normal text-brand-secondary leading-relaxed">
+                            <p className="text-[13px] md:text-sm font-normal text-brand-secondary leading-relaxed">
                                 {feature.description}
                             </p>
                         </div>
                     </div>
                 ))}
-
             </div>
         </Section>
     );

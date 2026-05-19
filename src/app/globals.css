@@ -8,17 +8,23 @@
     --color-brand-accent-text: #5EEAD4;
     --color-brand-btn: #00C48C;
     --color-brand-section-border: #C4CCD6;
+    --color-brand-dashboard-border: #D9DEE7;
 
+    --color-valid-main:#0a9f74;
+    --color-valid-bg:#E7FFF7;
     --color-error-main:#82181A;
     --color-error-secondary:#C10007;
     --color-error-bg:#FEF2F2;
     --color-invalid-main:#7B3306;
     --color-invalid-secondary:#BB4D00;
     --color-invalid-bg:#FFFBEB;
+    --color-progress-main:#2880B9;
+    --color-progress-bg:#DCF1FF;
+
 
     --font-sans: var(--font-inter), sans-serif;
     --font-serif: var(--font-libre-baskerville), serif;
     --font-ibm: var(--font-ibm-plex-sans), sans-serif;
-
+    --font-menlo: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
     --container-max-width: 1200px;
 }

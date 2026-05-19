@@ -6,10 +6,8 @@ import { VerifyingState, ChecklistItemType, CheckStatus } from "./VerifyingState
 import { SuccessState } from "./SuccessState";
 import { ErrorState } from "./ErrorState";
 
-// Визначаємо всі можливі екрани нашої стейт-машини
 type VerifyStep = "upload" | "verifying" | "success" | "revoked" | "invalid";
 
-// Ідеальні 5 етапів, що відповідають скріншоту з Figma
 const INITIAL_CHECKLIST: ChecklistItemType[] = [
     { id: "signature", label: "Checking cryptographic signature", status: "pending" },
     { id: "did", label: "Resolving issuer DID", status: "pending" },
@@ -89,35 +87,37 @@ export const VerifyContent = () => {
     };
 
     return (
-        <section className="min-h-screen bg-[#F8F9FA] flex flex-col items-center pt-[48px] pb-[64px] px-4">
+    <section className="min-h-screen bg-[#F8F9FA] flex flex-col items-center pt-6 md:pt-[48px] pb-8 md:pb-[64px] px-4">
 
-            <div className='max-w-[880px] w-full flex flex-col items-center justify-center flex-1'>
+        <div className='max-w-[880px] w-full flex flex-col items-center justify-center flex-1'>
 
-                {currentStep === "upload" && (
-                    <UploadState onUpload={startVerificationFlow} />
-                )}
-                {currentStep === "verifying" && (
-                    <VerifyingState progress={progress} checklist={checklist} />
-                )}
+            {currentStep === "upload" && (
+                <UploadState onUpload={startVerificationFlow} />
+            )}
+            {currentStep === "verifying" && (
+                <VerifyingState progress={progress} checklist={checklist} />
+            )}
 
-                {currentStep === "success" && (
-                    <SuccessState onReset={resetFlow} />
-                )}
+            {currentStep === "success" && (
+                <SuccessState onReset={resetFlow} />
+            )}
 
-                {currentStep === "revoked" && (
-                    <ErrorState type="revoked" onReset={resetFlow} />
-                )}
+            {currentStep === "revoked" && (
+                <ErrorState type="revoked" onReset={resetFlow} />
+            )}
 
-                {currentStep === "invalid" && (
-                    <ErrorState type="invalid" onReset={resetFlow} />
-                )}
-            </div>
+            {currentStep === "invalid" && (
+                <ErrorState type="invalid" onReset={resetFlow} />
+            )}
+        </div>
 
-            <div className="mt-auto flex items-center justify-center gap-[8px] text-[11px] text-brand-secondary/70 max-w-[880px] w-full text-center py-[24px] ">
-                <img src="/icons/shild.svg" alt="Shield icon" className="opacity-70" />
-                <span>All credentials are issued as W3C Verifiable Credentials (VC) and stored on a tamper-evident ledger. Certifd complies with ISO/IEC 18013-5 and GDPR.</span>
-            </div>
+        <div className="mt-auto flex flex-col sm:flex-row items-center sm:items-start md:items-center justify-center gap-3 sm:gap-[8px] text-[10px] sm:text-[11px] text-brand-secondary/70 max-w-[880px] w-full text-center py-6 md:py-[24px]">
+            <img src="/icons/shild.svg" alt="Shield icon" className="opacity-70 shrink-0 w-4 h-4 sm:w-auto sm:h-auto" />
+            <span className="leading-relaxed sm:leading-normal">
+                    All credentials are issued as W3C Verifiable Credentials (VC) and stored on a tamper-evident ledger. Certifd complies with ISO/IEC 18013-5 and GDPR.
+                </span>
+        </div>
 
-        </section>
-    );
+    </section>
+);
 };

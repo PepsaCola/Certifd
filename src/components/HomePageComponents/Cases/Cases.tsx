@@ -24,9 +24,10 @@ const casesData = [
 
 export const Cases = () => {
     return (
-        <>
-            <div className="mb-16 md:mb-20 ">
-                <SectionTitle style="text-center mb-4 mt-[128px]">
+        <div id={'security'} className="flex flex-col w-full pb-16 md:pb-24">
+
+            <div className="mb-12 md:mb-20 px-4 sm:px-8 md:px-[80px]">
+                <SectionTitle style="text-center mb-4 mt-16 md:mt-24 lg:mt-[128px]">
                     Everything your institution needs
                 </SectionTitle>
                 <SectionSubTitle style="text-center max-w-[663px] mx-auto">
@@ -34,24 +35,24 @@ export const Cases = () => {
                 </SectionSubTitle>
             </div>
 
-            <div className="flex flex-col w-full gap-20 md:gap-0">
+            <div className="flex flex-col w-full gap-16 md:gap-0">
                 {casesData.map((item, index) => (
                     <div
                         key={index}
-                        className={`flex flex-col md:flex-row w-full md:items-stretch gap-5 md:gap-0 ${
+                        className={`flex flex-col md:flex-row w-full md:items-center gap-8 md:gap-0 ${
                             item.reverse ? "md:flex-row-reverse" : ""
                         }`}
                     >
-                        <div className="flex flex-col justify-center flex-1 w-full gap-4 px-[80px] ">
-                            <h3 className="font-serif text-3xl font-bold text-brand-dark">
+                        <div className="flex flex-col justify-center flex-1 w-full gap-3 md:gap-4 px-4 sm:px-8 md:px-12 lg:px-[80px]">
+                            <h3 className="font-serif text-2xl md:text-3xl font-bold text-brand-dark text-center md:text-left">
                                 {item.title}
                             </h3>
-                            <p className="font-sans text-lg text-brand-secondary leading-relaxed">
+                            <p className="font-sans text-[15px] md:text-lg text-brand-secondary leading-relaxed text-center md:text-left">
                                 {item.description}
                             </p>
                         </div>
 
-                        <div className="flex flex-1 w-full items-center justify-center">
+                        <div className="flex flex-1 w-full items-center justify-center px-4 sm:px-8 md:px-12 lg:px-[80px]">
                             <img
                                 src={item.image}
                                 alt={item.title}
@@ -61,6 +62,7 @@ export const Cases = () => {
                     </div>
                 ))}
             </div>
-        </>
+
+        </div>
     );
 };
